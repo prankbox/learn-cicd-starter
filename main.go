@@ -13,8 +13,6 @@ import (
 	"github.com/go-chi/cors"
 	"github.com/joho/godotenv"
 
-	//	"github.com/bootdotdev/learn-cicd-starter/internal/database"
-
 	_ "github.com/tursodatabase/libsql-client-go/libsql"
 )
 
@@ -26,12 +24,12 @@ type apiConfig struct {
 var staticFiles embed.FS
 
 func main() {
-	err := godotenv.Load("env")
+	err := godotenv.Load(".env")
 	if err != nil {
 		log.Printf("warning: assuming default configuration. .env unreadable: %v", err)
 	}
 
-	port := os.Getenv("POT")
+	//	port := os.Getenv("PORT")
 	if port == "" {
 		log.Fatal("PORT environment variable is not set")
 	}
